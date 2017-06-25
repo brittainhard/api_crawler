@@ -4,7 +4,7 @@ import ast, os
 import pytest
 xfail = pytest.mark.xfail
 
-from ..api_crawler import api_crawler, differ
+from api_crawler.api_crawler import api_crawler, differ
 
 
 source = """
@@ -38,11 +38,6 @@ class SampleClass:
 @pytest.fixture
 def test_crawler():
     return api_crawler("bokeh")
-
-
-def test_get_crawl_dict(test_crawler):
-    crawl_dict = test_crawler.get_crawl_dict()
-    assert crawl_dict
 
 
 def test_name_is_public(test_crawler):
@@ -350,9 +345,9 @@ def test_diff_signature_added(test_differ):
 
 
 def test_multuple_methods_diff(test_differ):
-    with open(os.path.join(os.path.dirname(__file__), "samples/inputs_old.txt"), "r") as f:
+    with open(os.path.join(os.path.dirname(__file__), "sample_data/inputs_old.txt"), "r") as f:
         old = f.read()
-    with open(os.path.join(os.path.dirname(__file__), "samples/inputs_new.txt"), "r") as f:
+    with open(os.path.join(os.path.dirname(__file__), "sample_data/inputs_new.txt"), "r") as f:
         new = f.read()
     expected = {'inputs':
         {
