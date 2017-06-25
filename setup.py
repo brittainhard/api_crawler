@@ -1,9 +1,12 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
-    name="api_crawler",
+    name="api_history_crawler",
     version="1.0",
     license="MIT",
     packages=["api_crawler"],
-    scripts=["api_crawler/crawl-api"],
+    scripts=["api_crawler/api-crawler"],
+    install_requires=[
+        "six"
+    ]
 )
