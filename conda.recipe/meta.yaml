@@ -9,6 +9,8 @@ source:
 requirements:
     build:
         - python
-        - setuptools
+        - six
+
     run:
+        - six
         - python
